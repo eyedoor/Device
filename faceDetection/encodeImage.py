@@ -7,9 +7,9 @@ import json
 image = open('bestImage/chosenImage.jpg', 'rb')
 image_read = image.read()
 image_64_encode = base64.encodestring(image_read)
-
+os.remove('bestImage/chosenImage.jpg')
 API_ENDPOINT = "https://joseph-frank.com/test/images"
-API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiand0VHlwZSI6ImRldmljZSIsImlhdCI6MTU1MjYwNTgwNn0.lIFVPb9B0pxoykZl4YMkFwt8yFdnnDfc_dA1kxrP8aU"
+API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiand0VHlwZSI6ImRldmljZSIsImlhdCI6MTU1MzAzMjI0Nn0.6jozKQELi6z8LpXU1fgWDLjSIfwt5dTn5b0in_qPaGM"
 
 headers = {
 	'Content-Type':"application/x-www-form-urlencoded",

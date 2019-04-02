@@ -19,7 +19,7 @@ time_end = time.time() + 10
 
 while time.time() < time_end:
     ret, img = cap.read()
-    #    img = cv2.flip(img, -1)
+    #img = cv2.flip(img, -1)
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     faces = faceCascade.detectMultiScale(
         gray,
@@ -27,8 +27,7 @@ while time.time() < time_end:
         minNeighbors=5,     
         minSize=(20, 20)
     )
-    cv2.imshow('video',img)
-    counter = 1
+    #cv2.imshow('video',img)
     for(x,y,w,h) in faces:
         if not os.path.isfile('person1.jpg'):
             nameImage = 'person1'
@@ -36,7 +35,6 @@ while time.time() < time_end:
             nameImage = 'person2'
         else:
             nameImage = 'person3'
-        print(variance_of_laplacian(img)) #Just for checking image selection
         cv2.imwrite(nameImage + '.jpg', img)
         if os.path.isfile('person3.jpg'):
             imgArray = [cv2.imread('person1.jpg'),
@@ -54,6 +52,7 @@ while time.time() < time_end:
             os.remove('person3.jpg')
             cap.release()
             cv2.destroyAllWindows()
+            os.system('python3 encodeImage.py')
             exit()
     k = cv2.waitKey(30) & 0xff
     if k == 27: # press 'ESC' to quit
