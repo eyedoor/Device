@@ -60,9 +60,9 @@ while time.time() < time_end:
             cap.release()
             cv2.destroyAllWindows()
             os.system('python3 encodeImage.py')
-            exit()
-    k = cv2.waitKey(30) & 0xff
-    if k == 27: # press 'ESC' to quit
-        break
+            break
+    #k = cv2.waitKey(30) & 0xff
+    #if k == 27: # press 'ESC' to quit
 cap.release()
 cv2.destroyAllWindows()
+print("Finished Face detection")
